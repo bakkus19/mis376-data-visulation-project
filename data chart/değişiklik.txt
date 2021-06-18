@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['', 'Percentage'],
+          ["Market", 186],
+          ["Health", 168],
+          ["Cosmetic", 106],
+          ["Book", 69],
+          ['Nuts', 42],
+          ["Jewelery", -19],
+          ["Electronic", -22],
+          ["BusTicket",-33],
+          ["Textile", -43],
+          ['Furniture', -55],
+          ["RentCar", -79],
+          ["FlightTicket", -82],
+          ["Hotel", -84],
+          
+        ]);
+
+        var options = {
+          width: 800,
+          legend: { position: 'none' },
+          chart: {
+            title: 'change in online spending amounts',
+            subtitle: ' percentage' },
+          axes: {
+            x: {
+              0: { side: 'top', label: 'sector'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };
+    </script>
+  </head>
+  <body>
+    <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawMultSeries);
+
+function drawMultSeries() {
+      var data = google.visualization.arrayToDataTable([
+        ['City', '2019', 'NOW'],
+        [' sites registered ETBIS', 21515, 24917],
+        [' businesses registered ETBIS',16202 , 20682],
+        ['businesses operating in the marketplace', 57394, 247654],
+        ['businesses operating both on site & on marketplace', 5139, 11475],
+        
+      ]);
+
+      var options = {
+        title: 'Businesses Engaged in E-Commerce Activities',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: '',
+          minValue: 0
+        },
+        vAxis: {
+          title: ''
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }

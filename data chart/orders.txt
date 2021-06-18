@@ -1,0 +1,26 @@
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawMultSeries);
+
+function drawMultSeries() {
+      var data = google.visualization.arrayToDataTable([
+        ['City', '2019', '2020'],
+        [' e-commerce orders', 1360000000, 2290000000],
+
+       
+      ]);
+
+      var options = {
+        title: 'orders',
+        chartArea: {width: '70%'},
+        hAxis: {
+          title: '',
+          minValue: 0
+        },
+        vAxis: {
+          title: ''
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
